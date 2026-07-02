@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow">
+<title>Fluostack — Coming Soon</title>
+<meta name="description" content="Fluostack is coming soon. A new project from Lyncstack.">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-icon.png">
+<style>
+  :root{
+    --bg:#0B1020; --bg2:#070A15;
+    --ink:#E8EDF7; --muted:#9AA7C2; --faint:#64748B;
+    --cyan:#38BDF8; --indigo:#818CF8; --gold:#FBBF24;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{height:100%;}
+  body{
+    font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink); background:var(--bg);
+    min-height:100%; display:flex; align-items:center; justify-content:center;
+    overflow:hidden; position:relative; -webkit-font-smoothing:antialiased;
+  }
+  /* ambient glow */
+  .glow-a, .glow-b{position:fixed; border-radius:50%; filter:blur(20px); pointer-events:none; z-index:0;}
+  .glow-a{width:60vmax; height:60vmax; left:-20vmax; top:-20vmax;
+    background:radial-gradient(circle, rgba(56,189,248,.18), transparent 60%); animation:breathe 9s ease-in-out infinite;}
+  .glow-b{width:55vmax; height:55vmax; right:-18vmax; bottom:-18vmax;
+    background:radial-gradient(circle, rgba(129,140,248,.16), transparent 60%); animation:breathe 11s ease-in-out infinite reverse;}
+  @keyframes breathe{0%,100%{opacity:.55; transform:scale(1);} 50%{opacity:.9; transform:scale(1.08);}}
+
+  main{position:relative; z-index:1; text-align:center; padding:40px 24px; max-width:680px;}
+  .eyebrow{font-size:13px; letter-spacing:.32em; text-transform:uppercase; color:var(--cyan); font-weight:700; margin-bottom:26px; opacity:.9;}
+
+  .wordmark{
+    font-size:clamp(56px, 13vw, 132px); font-weight:900; letter-spacing:-.04em; line-height:1;
+    background:linear-gradient(115deg,#FFFFFF 18%, var(--cyan) 60%, var(--indigo) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .soon{
+    margin-top:18px; font-size:clamp(20px,4vw,30px); font-weight:800; letter-spacing:.18em;
+    color:var(--gold); text-transform:uppercase;
+  }
+  .tagline{margin-top:22px; font-size:clamp(16px,2.4vw,20px); color:var(--muted); line-height:1.6; font-weight:500;}
+  .pulse{display:inline-block; width:9px; height:9px; border-radius:50%; background:var(--cyan);
+    margin-right:10px; vertical-align:middle; box-shadow:0 0 0 0 rgba(56,189,248,.6); animation:pulse 2s infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(56,189,248,.55);} 70%{box-shadow:0 0 0 14px rgba(56,189,248,0);} 100%{box-shadow:0 0 0 0 rgba(56,189,248,0);}}
+
+  .links{margin-top:40px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
+  a.btn{display:inline-block; padding:13px 26px; border-radius:999px; font-size:15px; font-weight:700;
+    text-decoration:none; transition:transform .15s ease, background .2s ease, border-color .2s ease;}
+  a.primary{background:linear-gradient(120deg,var(--cyan),var(--indigo)); color:#06101F;}
+  a.primary:hover{transform:translateY(-2px);}
+  a.ghost{border:1px solid rgba(154,167,194,.3); color:var(--muted);}
+  a.ghost:hover{color:#fff; border-color:var(--muted);}
+
+  footer{position:fixed; left:0; right:0; bottom:20px; z-index:1; text-align:center; font-size:13px; color:var(--faint);}
+  footer a{color:var(--muted); text-decoration:none; font-weight:600;}
+  footer a:hover{color:#fff;}
+
+  @media (prefers-reduced-motion: reduce){
+    .glow-a,.glow-b,.pulse{animation:none;}
+  }
+</style>
+</head>
+<body>
+  <div class="glow-a"></div>
+  <div class="glow-b"></div>
+
+  <main>
+    <div class="eyebrow">A Lyncstack Project</div>
+    <h1 class="wordmark">Fluostack</h1>
+    <div class="soon">Coming Soon</div>
+    <p class="tagline"><span class="pulse" aria-hidden="true"></span>We're building something new. It's not ready to share yet — but it will be worth the wait.</p>
+
+    <div class="links">
+      <a class="ghost" href="mailto:hello@lyncstack.com?subject=Fluostack">Get in touch</a>
+      <a class="ghost" href="/">← Back to Lyncstack</a>
+    </div>
+  </main>
+
+  <footer>© <span id="y">2026</span> <a href="/">Lyncstack</a></footer>
+
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>
